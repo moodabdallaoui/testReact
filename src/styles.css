@@ -1,0 +1,347 @@
+/* General Body & Typography */
+body {
+    background-color: #121212; /* Dark background for the whole page */
+    font-family: 'Inter', sans-serif;
+    color: #e0e0e0; /* Light default text color */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+#root {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Main Wizard Container */
+.wizard-container {
+    background-color: #1e1e1e; /* Main container background */
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- No changes needed for ProgressTracker or wizard-header from here --- */
+/* You can keep your existing styles for these if you wish, or use these simple ones */
+.wizard-header {
+    padding: 20px 30px;
+    border-bottom: 1px solid #333;
+}
+.wizard-header h1 { margin: 0; font-size: 1.5rem; color: #ffffff; }
+.wizard-header p { margin: 4px 0 0; color: #a0a0a0; }
+.progress-tracker { display: none; } /* The new design has this integrated differently */
+/* --- End of unchanged section --- */
+
+
+.wizard-content {
+    padding: 30px;
+}
+
+.wizard-content h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.wizard-content .subtitle {
+    text-align: center;
+    color: #a0a0a0;
+    margin-bottom: 30px;
+}
+
+/* Skip Selection Grid */
+.skip-selection-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* NEW Skip Card Styling */
+.skip-card {
+    background-color: #2b2b2b;
+    border: 2px solid #444;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.skip-card.selected {
+    border-color: #007bff;
+}
+
+.skip-image-container {
+    position: relative;
+}
+
+.skip-card .skip-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background-color: #333;
+    display: block;
+}
+
+.skip-yard-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.skip-card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.skip-card-content h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.skip-card-content .skip-hire-period {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin: 5px 0 15px 0;
+}
+
+.skip-card-content .skip-price {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.btn-select-skip {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+    background-color: #444;
+    color: #e0e0e0;
+}
+
+.skip-card.selected .btn-select-skip {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+/* Footer & Navigation */
+.wizard-footer {
+    padding: 15px 30px;
+    border-top: 1px solid #333;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.footer-summary {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+.footer-summary span {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.footer-nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    background: none;
+    color: #e0e0e0;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+.btn-primary:disabled {
+    background-color: #007bff;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+        background-color: #1e1e1e;
+    }
+    .wizard-container {
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh;
+    }
+    .wizard-footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .footer-nav-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.form-group {
+    margin-bottom: 25px; /* Added slightly more space between form groups */
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 12px; /* Increased space below label */
+    color: #e0e0e0;
+    font-size: 1.05rem; /* Made label text slightly larger */
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 14px; /* Increased padding for a better feel */
+    border-radius: 8px; /* Slightly more rounded corners */
+    border: 1px solid #555;
+    background-color: #333;
+    color: #e0e0e0;
+    box-sizing: border-box; 
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* NEW: This tells the browser to use its dark UI for the calendar popup */
+.form-group input[type="date"] {
+    color-scheme: dark;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #2aaa8a;
+    box-shadow: 0 0 0 3px rgba(42, 170, 138, 0.3); /* Added a focus ring */
+}
+
+/* Radio Group - NEW INTERACTIVE STYLE */
+.radio-group {
+    display: grid; /* Use grid for easy alignment */
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the text */
+    padding: 14px;
+    border: 2px solid #555; /* Made border slightly thicker */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color: #333;
+}
+
+.radio-group label:hover {
+    background-color: #444; /* Add a hover effect */
+    border-color: #666;
+}
+
+.radio-group input[type="radio"] {
+    display: none; /* Keep the actual radio button hidden */
+}
+
+/* This is the key change for the selected state */
+.radio-group label:has(input:checked) {
+    background-color: #2aaa8a; /* Fill the background with the accent color */
+    border-color: #2aaa8a;     /* Match the border to the accent color */
+}
+
+.radio-group span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    transition: color 0.2s ease-in-out;
+}
+
+/* When a radio is checked, its label's text becomes white for contrast */
+.radio-group label:has(input:checked) span {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* --- The rest of your CSS for Confirmation, Navigation, etc. can remain the same --- */
+
+/* Confirmation & Summary */
+.confirmation-summary {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 20px;
+}
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+}
+.summary-item:last-child {
+    border-bottom: none;
+}
+.summary-item .label {
+    color: #a0a0a0;
+}
+.summary-item .value {
+    font-weight: 600;
+    color: #ffffff;
+}
+.summary-item .value.price {
+    color: #2aaa8a;
+    font-size: 1.2rem;
+}
+
+
+/* Wizard Navigation */
+.wizard-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    border-top: 1px solid #333;
+    background-color: #1e1e1e; /* Match main container background */
+}
